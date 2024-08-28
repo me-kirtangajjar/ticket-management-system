@@ -34,7 +34,8 @@ const initDb = async () => {
     `);
     console.log("Database initialized");
   } catch (error) {
-    console.error("Error initializing database", error);
+    console.error(error);
+    return res.status(500).send({ msg: "Something went wrong !!!" });
   }
 };
 

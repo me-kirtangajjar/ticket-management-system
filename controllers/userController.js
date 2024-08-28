@@ -19,7 +19,7 @@ const register = async (req, res) => {
       .send({ id: user.id, name: user.name, email: user.email });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Error creating user" });
+    return res.status(500).send({ msg: "Something went wrong !!!" });
   }
 };
 

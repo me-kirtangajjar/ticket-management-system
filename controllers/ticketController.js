@@ -35,7 +35,8 @@ const createTicket = async (req, res) => {
     });
     res.status(201).json(ticket);
   } catch (error) {
-    res.status(500).json({ error: "Error creating ticket" });
+    console.error(error);
+    return res.status(500).send({ msg: "Something went wrong !!!" });
   }
 };
 
@@ -48,7 +49,8 @@ const assignUserToTicket = async (req, res) => {
       msg: "User assigned successfully",
     });
   } catch (error) {
-    res.status(500).json({ error: "Error assigning user to ticket" });
+    console.error(error);
+    return res.status(500).send({ msg: "Something went wrong !!!" });
   }
 };
 
@@ -58,7 +60,8 @@ const getTicketDetails = async (req, res) => {
     const ticket = await Ticket.getTicketById(ticketId);
     res.status(200).json(ticket);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching ticket details" });
+    console.error(error);
+    return res.status(500).send({ msg: "Something went wrong !!!" });
   }
 };
 
